@@ -9,13 +9,14 @@
     function navigateImage(offset) {
         const urlParts = url.split('/');
         const lastPart = urlParts[urlParts.length - 1];
-        const match = lastPart.match(/(\d+)\.(jpg|png)$/i);
+        const match = lastPart.match(/(\d+)(\.(jpg|png))$/i);
 
         if (match) {
-            const base = lastPart.replace(/\d+\.(jpg|png)$/i, '');
-            const number = parseInt(match[1], 10) + offset;
+            const numberStr = match[1];
+            const number = parseInt(numberStr, 10) + offset;
+            const newNumberStr = number.toString().padStart(numberStr.length, '0');
             const extension = match[2];
-            const newUrl = urlParts.slice(0, -1).join('/') + '/' + base + number + '.' + extension;
+            const newUrl = urlParts.slice(0, -1).join('/') + '/' + newNumberStr + extension;
             window.location.href = newUrl;
         }
     }
