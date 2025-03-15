@@ -1,7 +1,7 @@
 (function () {
     // Überprüfen, ob die aktuelle URL auf .jpg oder .png endet
     const url = window.location.href;
-    if (!url.match(/\.(jpg|png)$/i)) {
+    if (!url.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
         return; // Keine Aktion, wenn die URL nicht auf ein Bild verweist
     }
 
